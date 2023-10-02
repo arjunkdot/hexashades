@@ -1,6 +1,7 @@
 /**
  * Hexashades - create an array of shades & tints for a given color.
- *  @link https://github.com/arjunkdot/hexashades/
+ * @version
+ * @link https://github.com/arjunkdot/hexashades/
  * @license MIT
  */
 
