@@ -1,0 +1,47 @@
+{
+  "name": "hexashades",
+  "version": "1.0.0",
+  "description": "Creates shades & tints for a given HEX code.",
+  "main": "dist/index.esm.js",
+  "commonjs": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.cjs.js",
+    "dist/index.esm.js",
+    "dist/index.umd.js",
+    "dist/index.d.ts"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjunkdot/hexashades.git"
+  },
+  "keywords": [
+    "hex",
+    "rgb",
+    "colors",
+    "shades",
+    "tints"
+  ],
+  "author": "arjunkdot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arjunkdot/hexashades/issues"
+  },
+  "homepage": "https://github.com/arjunkdot/hexashades#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.4",
+    "rollup": "^3.29.4",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "tslib": "^2.6.2"
+  }
+}
