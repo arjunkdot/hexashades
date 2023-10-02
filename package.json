@@ -7,7 +7,7 @@
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "src/index.d.ts",
   "files": [
     "dist/index.cjs.js",
     "dist/index.esm.js",
@@ -42,6 +42,7 @@
     "@rollup/plugin-typescript": "^11.1.4",
     "rollup": "^3.29.4",
     "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
     "tslib": "^2.6.2"
   }
 }

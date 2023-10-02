@@ -1,21 +1,20 @@
 import typescript from "@rollup/plugin-typescript";
 import cleanup from "rollup-plugin-cleanup";
+import sourcemaps from "rollup-plugin-sourcemaps";
 import pkg from "./package.json" assert { type: "json" };
 
 export default {
   input: "src/index.ts",
   output: [
     {
-      file: pkg.main,
+      file: pkg.commonjs,
       format: "cjs",
       sourcemap: true,
-      strict: false,
     },
     {
       file: pkg.module,
       format: "es",
       sourcemap: true,
-      strict: false,
     },
     {
       file: pkg.browser,
@@ -23,5 +22,5 @@ export default {
       name: "Hexashades",
     },
   ],
-  plugins: [typescript(), cleanup()],
+  plugins: [typescript(), sourcemaps(), cleanup()],
 };
