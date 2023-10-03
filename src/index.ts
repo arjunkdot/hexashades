@@ -1,6 +1,6 @@
 /**
  * Hexashades - create an array of shades & tints for a given color.
- * @version
+ * @version 1.0.0
  * @link https://github.com/arjunkdot/hexashades/
  * @license MIT
  */
@@ -96,7 +96,7 @@ export class Colors {
     createColors(color: string, percentage: number) {
         // Check if HEX is valid
         if (color.length !== 3 && color.length !== 6) {
-            throw new Error("Not a valid length");
+            throw new Error("Invalid input. Not a valid length");
         }
         // Pad the HEX string if it has only 3 characters
         if (color.length === 3) {
@@ -115,6 +115,10 @@ export class Colors {
         const tints = this.result.slice(0, this.result.length / 2).reverse();
         const shades = this.result.slice(this.result.length / 2, this.result.length).reverse();
         shades.unshift(color);
+
+        // Reset global variables
+        this.limit = 0;
+        this.result= [];
 
         return tints.concat(shades);
     }
