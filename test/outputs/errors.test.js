@@ -4,16 +4,66 @@ const ctx = new hexashades.Colors();
 
 describe("throws an error", () => {
   test("for invalid hex codes", () => {
-    expect(() => ctx.createColors("xyz", 10)).toThrow('Invalid input. Please make sure the HEX code given is valid.');
-    expect(() => ctx.createColors("a0axa0", 10)).toThrow('Invalid input. Please make sure the HEX code given is valid.');
-    expect(() => ctx.createColors("a0aaaz", 10)).toThrow('Invalid input. Please make sure the HEX code given is valid.');
+    expect(() => ctx.createColors("xyz", 10)).toThrow(
+      "Invalid input. Please make sure the HEX code given is valid."
+    );
+    expect(() => ctx.createColors("a0axa0", 10)).toThrow(
+      "Invalid input. Please make sure the HEX code given is valid."
+    );
+    expect(() => ctx.createColors("a0aaaz", 10)).toThrow(
+      "Invalid input. Please make sure the HEX code given is valid."
+    );
   });
 
-  test("for invalid input length", ()=>{
-    expect(()=> ctx.createColors("66")).toThrow('Invalid input. Not a valid length');
-    expect(()=> ctx.createColors("6")).toThrow('Invalid input. Not a valid length');
-    expect(()=> ctx.createColors("6666")).toThrow('Invalid input. Not a valid length');
-    expect(()=> ctx.createColors("66666")).toThrow('Invalid input. Not a valid length');
-    expect(()=> ctx.createColors("6666666")).toThrow('Invalid input. Not a valid length');
-  })
+  test("for invalid input length", () => {
+    expect(() => ctx.createColors("66", 10)).toThrow(
+      "Invalid input. Not a valid length."
+    );
+    expect(() => ctx.createColors("6", 10)).toThrow(
+      "Invalid input. Not a valid length."
+    );
+    expect(() => ctx.createColors("6666", 10)).toThrow(
+      "Invalid input. Not a valid length."
+    );
+    expect(() => ctx.createColors("66666", 10)).toThrow(
+      "Invalid input. Not a valid length."
+    );
+    expect(() => ctx.createColors("6666666", 10)).toThrow(
+      "Invalid input. Not a valid length."
+    );
+  });
+
+  test("for invalid percentage value", () => {
+    expect(() => ctx.createColors("66", -10)).toThrow(
+      "Invalid input. Invalid percentage value is given."
+    );
+    expect(() => ctx.createColors("66", 110)).toThrow(
+      "Invalid input. Invalid percentage value is given."
+    );
+  });
+
+  test("for invalid percentage type", () => {
+    expect(() => ctx.createColors("66", 'abc')).toThrow(
+      "Invalid input. Wrong input types are given."
+    );
+    expect(() => ctx.createColors("66", true)).toThrow(
+      "Invalid input. Wrong input types are given."
+    );
+  });
+
+  test("for invalid hex code type", () => {
+    expect(() => ctx.createColors(666, 10)).toThrow(
+      "Invalid input. Wrong input types are given."
+    );
+    expect(() => ctx.createColors(true, 10)).toThrow(
+      "Invalid input. Wrong input types are given."
+    );
+  });
+
+  test("for invalid prefix type", () => {
+    expect(() => ctx.createColors('fff', 10, 'abc')).toThrow(
+      "Invalid input. Wrong input types are given."
+    );
+  });
+
 });
