@@ -102,7 +102,7 @@ export class Colors {
             throw new Error('No input provided');
         }
         // Check for input types
-        if(typeof color !== 'string' || typeof percentage !== 'number'){
+        if(typeof color !== 'string' || typeof percentage !== 'number' || typeof prefix !== 'boolean'){
             throw new Error('Invalid input. Wrong input types are given.');
         }
         // Check if the percentage is valid
@@ -111,7 +111,7 @@ export class Colors {
         }
         // Check if HEX is valid
         if (color.length !== 3 && color.length !== 6) {
-            throw new Error("Invalid input. Not a valid length");
+            throw new Error("Invalid input. Not a valid length.");
         }
         // Pad the HEX string if it has only 3 characters
         if (color.length === 3) {
