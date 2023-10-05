@@ -18,7 +18,7 @@ npm install hexashades --save
 
 Or load using a `<script>` tag from a CDN
 
-```sh
+```html
 <script src="https://cdn.jsdelivr.net/npm/hexashades/"></script>
 ```
 
