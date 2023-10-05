@@ -42,7 +42,7 @@ Throws an error if no/invalid inputs are given.
 
 - `@param {string} color` - a valid RGB hex code without #
 - `@param {number} percentage` - a valid percentage value between 0 and 100
-- `@param {boolean} prefix` - true/false. Whether the output should include #
+- `@param {boolean} prefix` - (Optional) true/false. Whether the output should include #
 - `@return {Array<string>}` - array with hex codes
 
 ## License
