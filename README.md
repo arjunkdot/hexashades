@@ -1,8 +1,8 @@
 # Hexashades
 
-![NPM Version][npm-version]
-![NPM Bundle Size][npm-bundle-size]
-![License][github-license]
+[![NPM Version][npm-version]]
+[![NPM Bundle Size][npm-bundle-size]]
+[![License][github-license]]
 
 
 Hexashades helps you generate a range of shades and tints for any specified RGB Hex color code.
