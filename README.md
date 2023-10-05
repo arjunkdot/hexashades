@@ -16,7 +16,11 @@ Hexashades helps you generate a range of shades and tints for any specified RGB 
 npm install hexashades --save
 ```
 
-> CDN Support will be added soon.
+Or load using a `<script>` tag from a CDN
+
+```sh
+<script src="https://cdn.jsdelivr.net/npm/hexashades/"></script>
+```
 
 ## Usage
 
