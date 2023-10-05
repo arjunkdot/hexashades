@@ -1,5 +1,10 @@
 # Hexashades
 
+![NPM Version][npm-version]
+![NPM Bundle Size][npm-bundle-size]
+![License][github-license]
+
+
 Hexashades helps you generate a range of shades and tints for any specified RGB Hex color code.
 
 > Currently, it only supports RGB Hex codes. More input formats will be allowed in the future.
@@ -41,4 +46,7 @@ Throws an error if no/invalid inputs are given.
 MIT © arjunkdot
 
 
+[npm-version]: (https://img.shields.io/npm/v/hexashades?logo=npm&color=%23CB0001)
+[npm-bundle-size]: (https://img.shields.io/bundlephobia/min/hexashades)
+[github-license]: (https://img.shields.io/github/license/arjunkdot/hexashades)
 
