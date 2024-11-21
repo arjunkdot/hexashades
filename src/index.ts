@@ -5,15 +5,11 @@ type RgbType = {
 };
 
 export class Colors {
-    result: string[];
-    limit: number;
-    prefix: boolean;
+    result: string[] = [];
+    limit: number = 0;
+    prefix: boolean = false;
 
-    constructor() {
-        this.result = [];
-        this.limit = 0;
-        this.prefix = false;
-    }
+    constructor() { }
 
     #hex2Rgb(hex: string) {
         const sections = this.#hex2Groups(hex);
@@ -51,44 +47,34 @@ export class Colors {
     }
 
     #padHex(color: string) {
-        return `${color[0].padStart(2, color[0])}${color[1].padStart(2, color[1])}${color[2].padStart(2, color[2])}`;
+        return `${color.padStart(6, color[0])}`
     }
 
-    #generateShades(rgb: RgbType, percentage: number) {
-        const rgbShade = {
-            red: this.#getShade(rgb.red, this.limit),
-            green: this.#getShade(rgb.green, this.limit),
-            blue: this.#getShade(rgb.blue, this.limit),
-        };
-        const hex = this.#rgb2hex(rgbShade);
-        this.result.push(`${this.prefix ? '#' + hex : hex}`);
-        this.limit += percentage;
-        if (this.limit >= 100) {
-            return;
+    #generate(rgb: RgbType, percentage: number, type: 'shades' | 'tints') {
+        const color: RgbType = { red: 0, green: 0, blue: 0 };
+
+        if (type === 'shades') {
+            color.red = this.#getShade(rgb.red, this.limit);
+            color.green = this.#getShade(rgb.green, this.limit);
+            color.blue = this.#getShade(rgb.blue, this.limit);
+        } else {
+            color.red = this.#getTint(rgb.red, this.limit);
+            color.green = this.#getTint(rgb.green, this.limit);
+            color.blue = this.#getTint(rgb.blue, this.limit);
         }
 
-        this.#generateShades(rgb, percentage);
+        while (this.limit < 100) {
+            const hex = this.#rgb2hex(color);
+            this.result.push(`${this.prefix ? '#' + hex : hex}`);
+            this.limit += percentage;
+        }
+
     }
 
     #getTint(color: number, percentage: number) {
         const tint = Math.round(color + (255 - color) * (percentage / 100));
         // Return the max value 255 in case the calculation yields a number larger than the actual possible output.
         return (tint > 255) ? 255 : tint;
-    }
-
-    #generateTints(rgb: RgbType, percentage: number) {
-        this.limit += percentage;
-        const rgbTint = {
-            red: this.#getTint(rgb.red, this.limit),
-            green: this.#getTint(rgb.green, this.limit),
-            blue: this.#getTint(rgb.blue, this.limit),
-        };
-        const hex = this.#rgb2hex(rgbTint);
-        this.result.push(`${this.prefix ? '#' + hex : hex}`);
-        if (this.limit >= 100) {
-            return;
-        }
-        this.#generateTints(rgb, percentage);
     }
 
     createColors(color: string, percentage: number, prefix: boolean = false) {
@@ -100,14 +86,10 @@ export class Colors {
         if (typeof color !== 'string' || typeof percentage !== 'number' || typeof prefix !== 'boolean') {
             throw new Error('Invalid input. Wrong input types are given.');
         }
-        // Check if the percentage is valid
-        if (percentage < 0 || percentage > 100) {
-            throw new Error('Invalid input. Invalid percentage value is given.')
+        if (color.length !== 3 && color.length !== 6 || percentage < 0 || percentage > 100) {
+            throw new Error('Invalid input. Wrong input values are given.');
         }
-        // Check if HEX is valid
-        if (color.length !== 3 && color.length !== 6) {
-            throw new Error("Invalid input. Not a valid length.");
-        }
+
         // Pad the HEX string if it has only 3 characters
         if (color.length === 3) {
             color = this.#padHex(color);
@@ -118,15 +100,16 @@ export class Colors {
 
         const rgb = this.#hex2Rgb(color);
         // Generate Tints
-        this.#generateTints(rgb, percentage);
+        this.#generate(rgb, percentage, 'tints');
         // Reset Limit
         this.limit = 0;
         // Generate Shades
-        this.#generateShades(rgb, percentage);
+        this.#generate(rgb, percentage, 'shades');
 
         // Arrange colors in ascending order
-        const tints = this.result.slice(0, this.result.length / 2).reverse();
-        const shades = this.result.slice(this.result.length / 2, this.result.length).reverse();
+        const mid = this.result.length / 2
+        const tints = this.result.slice(0, mid).reverse();
+        const shades = this.result.slice(mid).reverse();
         shades.unshift(`${this.prefix ? '#' + color : color}`);
 
         // Reset global variables

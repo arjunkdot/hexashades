@@ -17,28 +17,28 @@ describe("throws an error", () => {
 
   test("for invalid input length", () => {
     expect(() => ctx.createColors("66", 10)).toThrow(
-      "Invalid input. Not a valid length."
+      "Invalid input. Wrong input values are given."
     );
     expect(() => ctx.createColors("6", 10)).toThrow(
-      "Invalid input. Not a valid length."
+      "Invalid input. Wrong input values are given."
     );
     expect(() => ctx.createColors("6666", 10)).toThrow(
-      "Invalid input. Not a valid length."
+      "Invalid input. Wrong input values are given."
     );
     expect(() => ctx.createColors("66666", 10)).toThrow(
-      "Invalid input. Not a valid length."
+      "Invalid input. Wrong input values are given."
     );
     expect(() => ctx.createColors("6666666", 10)).toThrow(
-      "Invalid input. Not a valid length."
+      "Invalid input. Wrong input values are given."
     );
   });
 
   test("for invalid percentage value", () => {
     expect(() => ctx.createColors("66", -10)).toThrow(
-      "Invalid input. Invalid percentage value is given."
+      "Invalid input. Wrong input values are given."
     );
     expect(() => ctx.createColors("66", 110)).toThrow(
-      "Invalid input. Invalid percentage value is given."
+      "Invalid input. Wrong input values are given."
     );
   });
 
