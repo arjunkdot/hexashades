@@ -1,6 +1,6 @@
 {
   "name": "hexashades",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Creates shades & tints for a given HEX code.",
   "author": "arjunkdot",
   "license": "MIT",
