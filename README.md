@@ -1,4 +1,4 @@
-![Creating tints and shades for a given RGB hex code.](.github/assets/banner.jpg "Creating tints and shades for a given RGB hex code.")
+![Creating tints and shades for a given RGB hex code.](.github/banner.jpg "Creating tints and shades for a given RGB hex code.")
 
 <h1 align="center">Hexashades</h1>
 <p align="center">
