@@ -2,50 +2,36 @@
   "name": "hexashades",
   "version": "1.0.1",
   "description": "Creates shades & tints for a given HEX code.",
-  "main": "dist/index.esm.js",
-  "commonjs": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
-  "type": "module",
-  "types": "src/index.d.ts",
-  "files": [
-    "dist/index.cjs.js",
-    "dist/index.esm.js",
-    "dist/index.umd.js",
-    "dist/index.d.ts"
-  ],
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "build": "rollup -c",
-    "test": "jest",
-    "coverage": "jest --coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arjunkdot/hexashades.git"
-  },
-  "keywords": [
-    "hex",
-    "rgb",
-    "colors",
-    "shades",
-    "tints"
-  ],
   "author": "arjunkdot",
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "api": "none",
+  "scripts": {
+    "test": "jest tests",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "typecheck": "tsc",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "release": "pnpm run build && changeset publish"
+  },
   "bugs": {
     "url": "https://github.com/arjunkdot/hexashades/issues"
   },
   "homepage": "https://github.com/arjunkdot/hexashades#readme",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^11.1.5",
+    "@changesets/cli": "^2.27.10",
+    "@eslint/js": "^9.15.0",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.1",
+    "eslint": "^9.15.0",
+    "globals": "^15.12.0",
     "jest": "^29.7.0",
-    "rollup": "^4.0.0",
-    "rollup-plugin-cleanup": "^3.2.1",
-    "rollup-plugin-sourcemaps": "^0.6.3",
-    "tslib": "^2.6.2",
-    "typescript": "^5.2.2"
+    "ts-jest": "^29.2.5",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0"
   }
 }

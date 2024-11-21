@@ -1,10 +1,3 @@
-/**
- * Hexashades - create an array of shades & tints for a given color.
- * @version 1.0.1
- * @link https://github.com/arjunkdot/hexashades/
- * @license MIT
- */
-
 type RgbType = {
     red: number,
     green: number,
@@ -134,7 +127,7 @@ export class Colors {
         // Arrange colors in ascending order
         const tints = this.result.slice(0, this.result.length / 2).reverse();
         const shades = this.result.slice(this.result.length / 2, this.result.length).reverse();
-        shades.unshift(`${this.prefix ? '#' + color : color}`); // REMOVE THIS COMMENT: Could possibley add the item to the end of the array and then reverse it to make it more fast.
+        shades.unshift(`${this.prefix ? '#' + color : color}`);
 
         // Reset global variables
         this.limit = 0;

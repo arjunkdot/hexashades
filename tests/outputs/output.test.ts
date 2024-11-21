@@ -1,6 +1,6 @@
-const hexashades = require("../../dist/index.cjs.js");
+import { Colors } from '../../src/index'
 
-const ctx = new hexashades.Colors();
+const ctx = new Colors();
 
 describe("output", () => {
   test("produces the correct amount of shades for 10%", () => {
