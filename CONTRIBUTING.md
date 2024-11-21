@@ -41,7 +41,7 @@ I appreciate your contributions! To submit a pull request (PR), follow these ste
 2. Write clear, concise commit messages that explain your changes.
 3. Ensure that your code adheres to the project's coding style and passes any existing tests.
 4. If applicable, write tests for your changes and make sure they pass.
-5. Open a pull request against the main branch (usually `main` or `master`).
+5. Open a pull request against the main branch.
 
 I will review your PR and provide feedback. Be prepared to make revisions if necessary.
 
